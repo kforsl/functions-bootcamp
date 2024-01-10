@@ -37,3 +37,45 @@ function getYear() {
 function findYear(date) {
     return date.substring(0, 4)
 }
+
+/*
+Övning 3
+Skriv en funktion som tar tre parametrar. De första två är två tal och den sista är en operator d.v.s antingen '+', '-', '/', '*'. Utför beräkningen och returnera summan och skriv ut. Det ska enbart gå att skicka med siffror (förutom operanden som är en sträng då) och varje operation ska vara sin egen funktion. Tips! Här kan typeof vara bra att använda https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof Grunden till denna övninga, samt intruktioner finner du i mappen miniräknare.
+*/
+
+
+function calculator() {
+    let nmberOne = parseInt(window.prompt('Skriv in första numret'))
+    let nmberTwo = parseInt(window.prompt('Skriv in andra numret'))
+    let operation = window.prompt('Vad vill du göra med numren ( +, -, /, *)')
+
+    if (operation === '+') {
+        addition(nmberOne, nmberTwo)
+    } else if (operation === '-') {
+        subtraction(nmberOne, nmberTwo)
+    } else if (operation === '+') {
+        division(nmberOne, nmberTwo)
+    } else if (operation === '+') {
+        multiplication(nmberOne, nmberTwo)
+    } else {
+        window.alert('Du måste skriva in en giltig operation ( +, -, /, *)')
+        calculator()
+    }
+}
+
+function addition(nmberOne, nmberTwo) {
+    window.alert(nmberOne + nmberTwo)
+}
+
+function subtraction(nmberOne, nmberTwo) {
+    window.alert(nmberOne - nmberTwo)
+}
+
+function division(nmberOne, nmberTwo) {
+    window.alert(nmberOne / nmberTwo)
+}
+
+function multiplication(nmberOne, nmberTwo) {
+    window.alert(nmberOne * nmberTwo)
+}
+
