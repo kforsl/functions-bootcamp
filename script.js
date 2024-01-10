@@ -79,3 +79,52 @@ function multiplication(nmberOne, nmberTwo) {
     window.alert(nmberOne * nmberTwo)
 }
 
+/*
+Övning 4
+Gör om ditt sten, sax och påse - spel så du använder funktioner och försöker återanvända kod.
+*/
+function rockPaperScissor() {
+    let scoreGoal = 3;
+    let playerScore = 0;
+    let computerScore = 0;
+    let handSign = ['sten', 'sax', 'påse']
+
+    while (playerScore < scoreGoal && computerScore < scoreGoal) {
+
+        let playerHand = window.prompt(`
+        Nuvarande poäng Spelare: ${playerScore}! Computer: ${computerScore}!
+        Vad vill du välja Sten, Sax eller påse?`).toLowerCase()
+
+        if (!handSign.includes(playerHand)) {
+            window.alert('Du kan enbart spel Sten, Sax eller Påse')
+        } else {
+            let computerHand = handSign[Math.floor(Math.random() * handSign.length)]
+            if (playerHand === computerHand) {
+                messageDraw(playerHand)
+            } else if ((playerHand === 'sten' && computerHand === 'sax') || (playerHand === 'sax' && computerHand === 'påse') || (playerHand === 'påse' && computerHand === 'sten')) {
+                messageVictory(playerHand, computerHand)
+                playerScore++
+            } else {
+                messageLoss(playerHand, computerHand)
+                computerScore++
+            }
+        }
+    }
+    if (playerScore === scoreGoal) {
+        gameChampionMessage('Spelare')
+    } else if (computerScore === scoreGoal) {
+        gameChampionMessage('Datorn')
+    }
+}
+function messageDraw(player) {
+    window.alert(`Ni båda valde ${player}, det blev inga poäng`)
+}
+function messageVictory(player, computer) {
+    window.alert(`Grattis din ${player} besegrade din motståndares ${computer}!`)
+}
+function messageLoss(player, computer) {
+    window.alert(`Åh nej din ${player} blev besegrad av din motståndares ${computer}!`)
+}
+function gameChampionMessage(winner) {
+    window.alert(`Vinnaren är ${winner}! Grattis! `)
+}
